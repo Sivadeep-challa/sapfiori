@@ -1,0 +1,11 @@
+/* Enter your custom styles here */
+.highlighted-row {
+    background-color: orange !important;
+}
+
+.sapUiSizeCompact .sapMListTblSelCol,
+.sapUiSizeCompact .sapMListTblNavCol,
+.sapUiSizeCompact .sapMListTblCell {
+    vertical-align: middle;
+    border-left: 0.5px solid orange;
+}

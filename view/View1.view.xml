@@ -1,0 +1,132 @@
+
+<mvc:View controllerName="zdata.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:core="sap.ui.core">
+	<App>
+		<pages>
+			<Page class="sapUiSizeCompact">
+				<headerContent>
+					<Bar >
+						<contentLeft>
+							<Text text="{i18n>freeMan}"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="{i18n>name}" level="H2"/>
+						</contentMiddle>
+						<contentRight>
+							<Text text="{path: 'headerModel>/date', formatter: '.formatter.formatDate'}"/>
+							<Text text="{headerModel>/time}"/>
+						</contentRight>
+					</Bar>
+				</headerContent>
+				<content>
+					<fb:FilterBar id="filterbar" search=".onSearch" filterChange=".onFilterChange"
+					 showFilterConfiguration="false" header="Mpo Updates" showClearOnFB="true">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem name="Name" label="{i18n>showNo}" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<Input showValueHelp="true" valueHelpRequest="ValueHelp" value="{ViewModel>/showNumber}"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="Category" label="{i18n>tfc}" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<Input showValueHelp="true" valueHelpRequest="tfcHelp" value="{ViewModel>/tfc}"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="SupplierName" label="{i18n>appBooth}" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<Input value="{ViewModel>/booth}"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="Supplier" label="{i18n>appdigits}" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<Input value="{ViewModel>/last4Digits}"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem name="Sr" label="{i18n>appMPOID}" groupName="Group1" visibleInFilterBar="true">
+								<fb:control>
+									<Input value="{ViewModel>/mpoId}"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
+				</content>
+				<content>
+					<ScrollContainer focusable="true" horizontal="false" height="320px" id="scroll" vertical="true">
+						<Table mode="SingleSelectLeft" class="sapUiSizeCompact sapUiTinyMargin customTable" items="{path:'tabModel>/results'}" id="Table">
+							<headerToolbar >
+								<OverflowToolbar>
+									<Label text="{path: 'tabModel>/results', formatter: '.formatter.getAvailableCardsLabelText'}"/>
+									<ToolbarSpacer/>
+									<SearchField width="20%" search="onLivSearch" placeholder="Search by any column"/>
+									<Button icon="sap-icon://excel-attachment" press="onCopy" text="{i18n>copy}" type="Emphasized"/>
+									<Button icon="sap-icon://edit" press="onEdit" text="{i18n>edit}" type="Emphasized"/>
+									<Button icon="sap-icon://delete" text="{i18n>delete}" type="Reject" press="onDelete"/>
+									<Button icon="sap-icon://action-settings" press="onPersonalizationPress" text="{i18n>columns}" type="Emphasized"/>
+									<Button icon="sap-icon://sort" press="onSort"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column id="Column1">
+									<Text text="{i18n>appMPOID}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column2">
+									<Text text="{i18n>appShowNumber}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column3">
+									<Text text="{i18n>appTFC}"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column4">
+									<Text text="{i18n>appBooth}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column5">
+									<Text text="{i18n>appPrimaryIndicator}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column6">
+									<Text text="{i18n>appdigits}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true" id="Column7">
+									<Text text="{i18n>appHolder}"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column8">
+									<Text text="{i18n>appcardtype}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column9">
+									<Text text="{i18n>appexpiration}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column10">
+									<Text text="{i18n>appNotes}" wrapping="true"></Text>
+								</Column>
+							
+								<Column minScreenWidth="Tablet" demandPopin="true" id="Column11">
+									<Text text="{i18n>appChangedBy}" wrapping="true"></Text>
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true"  id="Column12">
+									<Text text="{i18n>appPaymentType}" wrapping="true"></Text>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Active">
+									<cells>
+										<Text text="{tabModel>mpoId}"></Text>
+										<Text text="{tabModel>showNumber}"></Text>
+										<Text text="{tabModel>tfc}"></Text>
+										<Text text="{tabModel>booth}"></Text>
+										<CheckBox text="{tabModel>primaryIndicator}" valueState="Success"/>
+										<Text text="{tabModel>last4Digits}"></Text>
+										<Text text="{tabModel>cardHolderName}"></Text>
+										<Text text="{tabModel>cardType}"></Text>
+										<Text text="{tabModel>expiration}"></Text>
+										<Text text="{tabModel>notes}"></Text>
+										<Text text="{tabModel>changedBy}"></Text>
+										<Text text="{tabModel>paymentType}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

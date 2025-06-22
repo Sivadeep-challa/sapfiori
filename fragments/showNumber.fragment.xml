@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="showNumber">
+		 <VBox>
+                <SearchField width="100%" search="onSearchShowNumber"/>
+                <Table items="{path: 'showModel>/results'}">
+                    <columns>
+                        <Column>
+                            <Label text="Show Number"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Active" press="onSelectShowNumber">
+                            <cells>
+                                <Text text="{showModel>showNumber}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+            <endButton>
+                <Button text="Close" press="onCloseShowNumber"/>
+            </endButton>
+	
+	</Dialog>
+</core:FragmentDefinition>
+    

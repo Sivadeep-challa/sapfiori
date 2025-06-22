@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="TFC">
+		 <VBox>
+                <SearchField width="100%" search="onSearchShowNumber"/>
+                <Table items="{path: 'tfcModel>/results'}">
+                    <columns>
+                        <Column>
+                            <Label text="TFC"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Active" press="onSelecttfc">
+                            <cells>
+                                <Text text="{tfcModel>tfc}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+            <endButton>
+                <Button text="Close" press="onClosetfc"/>
+            </endButton>
+	
+	</Dialog>
+</core:FragmentDefinition>

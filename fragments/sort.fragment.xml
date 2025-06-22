@@ -1,0 +1,11 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core">
+	<ViewSettingsDialog confirm="handleSortDialogConfirm" title="SORTING">
+		<sortItems>
+			<ViewSettingsItem text="MPO ID" key="mpoId" selected="true"/>
+			<ViewSettingsItem text="Show Number" key="showNumber" selected="true"/>
+			<ViewSettingsItem text="TFC" key="tfc" selected="true"/>
+			<ViewSettingsItem text="Booth" key="booth" selected="true"/>
+		
+		</sortItems>
+	</ViewSettingsDialog>
+</c:FragmentDefinition>
